@@ -15,7 +15,7 @@ module.exports = {
      audioUrl: "file:///Users/chrisramos/Downloads/%5BFREE%5D%20Ozuna%20Type%20Beat%20x%20Rauw%20Alejandro%20x%20Anuel%20AA%20'Recuerdos'%F0%9F%92%96%20_%20Instrumental%20de%20Reggaeton%202021%F0%9F%94%A5.mp3",
      userId: 1,
      key: 'CM',
-     typeId: 2,
+     typeId: 1,
      createdAt: new Date(),
      updatedAt: new Date()
     },
@@ -25,7 +25,7 @@ module.exports = {
       audioUrl: "file:///Users/chrisramos/Downloads/%5BFREE%5D%20Drake%20x%20Lil%20Wayne%20Type%20Beat%20-%20%E2%80%9CI%E2%80%99m%20Back%E2%80%9D.mp3",
       userId: 2,
       key: 'C#m',
-      typeId: 3,
+      typeId: 2,
       createdAt: new Date(),
       updatedAt: new Date()
      },
@@ -35,7 +35,7 @@ module.exports = {
       audioUrl: "file:///Users/chrisramos/Downloads/%5BFREE%5D%20The%20Weeknd%20Trilogy%20Type%20Beat%20_%20Peaking%20_%20Falling.mp3",
       userId: 3,
       key: 'C#m',
-      typeId: 4,
+      typeId: 3,
       createdAt: new Date(),
       updatedAt: new Date()
      }
