@@ -77,17 +77,16 @@ export const editABeat = (beat) => async(dispatch) => {
 const deleteBeat = (beat) => {
   return {
     type: DELETE_BEAT,
-    beat
   }
 }
 
 export const deleteABeat = (beatId) => async (dispatch) => {
-  const res = await csrfFetch( `/api/beats/${beatId}`,{
+  const res = await csrfFetch( `/api/beats/${beatId}`, {
     method: 'DELETE',
   })
-  const data = res.json();
-  dispatch(deleteBeat(data))
-  return data;
+  // const data = res.json();
+  dispatch(deleteBeat())
+  return res
 }
 
 // Reducer
@@ -105,17 +104,16 @@ let newState = {};
       }
     case ADD_BEAT:
 
-      newState.beats = {...state.beats, [action.beat.id]: action.beat }
+      newState.beats = {...state.beats, [action.beat?.id]: action.beat }
       return newState;
 
     case EDIT_BEAT:
-      newState.beats = {...state.beats, [action.beat.id]: action.beat }
+      newState.beats = {...state.beats, [action.beat?.id]: action.beat }
       return newState;
     case DELETE_BEAT:
       newState.beats = {...state.beats}
-      delete newState.beats[action.beat.id]
+      delete newState.beats[action.beat?.id]
       return newState
-
     default:
       return state;
   }

@@ -3,16 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editABeat } from '../../store/beats';
 import { useHistory } from 'react-router-dom';
 
-
+import './EditBet.css'
 const EditBeatForm = ({ id, beat, hideForm }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const userId = useSelector(state => state.session.user[id]);
 
-  const [title, setTitle] = useState(beat.title)
-  const [imageUrl, setImageUrl] = useState(beat.imageUrl)
+  const [title, setTitle] = useState(beat?.title)
+  const [imageUrl, setImageUrl] = useState(beat?.imageUrl)
   // const [audioUrl, setAudioUrl] = useState(beat.audioUrl)
-  const [key, setKey] = useState(beat.key)
+  const [key, setKey] = useState(beat?.key)
   const [errors, setErrors] = useState([])
 
 

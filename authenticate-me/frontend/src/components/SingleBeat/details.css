@@ -1,0 +1,18 @@
+button{
+  width: 10%;
+  height: 50px;
+  border: 1px solid;
+  background: linear-gradient(to left, #3421a3, #525155, #3b1c88);
+  border-radius: 25px;
+  font-size: 18px;
+  font-family: Interstate,Lucida Grande,Arial,sans-serif;
+  color: #e9f4fb;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+  }
+
+  button:hover{
+    border-color:black;
+    transition: .3s;
+  }
