@@ -18,13 +18,13 @@ module.exports = (sequelize, DataTypes) => {
     audioUrl: DataTypes.STRING,
     userId: {
       allowNull: false,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       references: { model: 'Users' }
     },
     key: DataTypes.STRING,
     typeId: {
       allowNull: false,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       references: { model: 'Types' }
     }
   }, {});

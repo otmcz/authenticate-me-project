@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Type = sequelize.define('Type', {
     name: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       validate: {
         notEmpty: {
           msg: 'Name can not be empty'

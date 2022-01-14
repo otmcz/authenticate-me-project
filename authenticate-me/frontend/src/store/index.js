@@ -2,9 +2,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import sessionReducer from './session';
+import beatReducer from './beats'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  beats: beatReducer
 });
 
 let enhancer;
