@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {  useHistory } from 'react-router-dom';
 import { addABeat } from "../../store/beats";
+import './Upload.css'
 
 const Upload = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Upload = () => {
     setKey('');
     setImageUrl('');
     setAudioUrl('');
+    history.push('/beats')
   };
 
   const handleSubmit = async (e) => {
@@ -86,7 +88,7 @@ const Upload = () => {
         required
         />
         <button type="submit">Upload Your Beat</button>
-        <button onClick={handleCancel}>Cancel</button>
+        <button id='cancel' onClick={handleCancel}>Cancel</button>
       </form>
     </div>
     )
