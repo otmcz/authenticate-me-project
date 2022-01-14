@@ -62,11 +62,12 @@ const editBeat = (beat) => {
   }
 };
 
-export const editABeat = (editedBeat, id) => async(dispatch) => {
+export const editABeat = (beat) => async(dispatch) => {
+  const {title, imageUrl, audioUrl, key, id, typeId } = beat
   const res = await csrfFetch(`/api/beats/${id}`,{
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(editedBeat)
+    body: JSON.stringify({title, imageUrl, audioUrl, key, id, typeId })
   });
   const data = await res.json();
   dispatch(editBeat(data));
@@ -104,12 +105,12 @@ let newState = {};
       }
     case ADD_BEAT:
 
-      newState.beats = {...state.beats, [action.beat.id]: action.beat };
+      newState.beats = {...state.beats, [action.beat.id]: action.beat }
       return newState;
 
     case EDIT_BEAT:
-      return {...state, [action.beat?.id]: action.beat }
-
+      newState.beats = {...state.beats, [action.beat.id]: action.beat }
+      return newState;
     case DELETE_BEAT:
       newState.beats = {...state.beats}
       delete newState.beats[action.beat.id]
