@@ -27,6 +27,7 @@ if (!isProduction) {
 // app.use(helmet({
 //   contentSecurityPolicy: false
 // }));
+
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 
