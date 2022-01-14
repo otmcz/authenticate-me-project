@@ -62,17 +62,18 @@ const editBeat = (beat) => {
   }
 };
 
-export const editABeat = (beat) => async(dispatch) => {
-  const {title, imageUrl, audioUrl, key, id, typeId } = beat
+export const editABeat = (beat, id) => async(dispatch) => {
+  // const {title, imageUrl, audioUrl, key, id, typeId } = beat
   const res = await csrfFetch(`/api/beats/${id}`,{
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({title, imageUrl, audioUrl, key, id, typeId })
+    body: JSON.stringify(beat)
   });
   const data = await res.json();
   dispatch(editBeat(data));
   return data;
 }
+
 // DELETE BEAT
 const deleteBeat = (beat) => {
   return {

@@ -29,14 +29,14 @@ const EditBeatForm = ({ id, beat, hideForm }) => {
     // setErrors([]);
 
     let editedBeat;
-    editedBeat = await dispatch(editABeat(beat,id ))
+    editedBeat = await dispatch(editABeat(beat, id ))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
       }
     );
     if (editedBeat) {
-      hideForm();
+      // hideForm();
       history.push('/beats')
       // history.goBack()
     }

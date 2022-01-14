@@ -30,14 +30,14 @@ const SingleBeat = ({ beats }) => {
   if (sessionUser.id === beat?.userId) {
     userActions = (
       <div className="2-buttons">
-        <button value={beat.id} onClick={() => setShowEditBeat(true)}>Edit</button>
+        <button value={beat?.id} onClick={() => setShowEditBeat(true)}>Edit</button>
         <button className='delete-button' onClick={handleDelete}>Delete</button>
       </div>
     )
   }
   let form = null
   if(showEditBeat) {
-    form = (<EditBeatForm id={beat.id} beat={beat} hideForm={()=>setShowEditBeat(false)} />)
+    form = (<EditBeatForm id={beat?.id} beat={beat} hideForm={()=>setShowEditBeat(false)} />)
   }
 
   return (
