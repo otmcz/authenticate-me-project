@@ -9,7 +9,7 @@ const SingleBeat = ({beats}) => {
   // const [beat,setBeat] = []
   const { id } = useParams();
   const beat = beats[id]
-  console.log('THIS IS THE ID',id)
+  // console.log('THIS IS THE ID',id)
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -26,9 +26,9 @@ const SingleBeat = ({beats}) => {
   return (
     <div>
       <h1>Beat: </h1>
-      <h3>{beat.title}</h3>
-      <p>Key: {beat.key}</p>
-      <img className='beatPic' alt={`${beat.title}`} src={beat.imageUrl} />
+      <h3>{beat?.title}</h3>
+      <p>Key: {beat?.key}</p>
+      <img className='beatPic' alt={`${beat?.title}`} src={beat?.imageUrl} />
       <button onClick={handleDelete}>DELETE</button>
     </div>
     )

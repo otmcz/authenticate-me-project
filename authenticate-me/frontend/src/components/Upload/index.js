@@ -31,7 +31,7 @@ const Upload = () => {
         key,
         imageUrl,
         audioUrl,
-        typeId: 3,
+        typeId: 2,
         userId,
     }
 
@@ -43,7 +43,7 @@ const Upload = () => {
         if (data && data.errors) setErrors(data.errors);
     });
     if (newBeat) {
-      history.push('/');
+      history.push('/beats');
     }
 }
   return (

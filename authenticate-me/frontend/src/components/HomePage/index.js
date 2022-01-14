@@ -6,13 +6,18 @@ const HomePage = ({ isLoaded }) => {
     let homeContent;
     if (sessionUser) {
         homeContent = (
-            <p>You are logged in</p>
+            <div className='home general'>
+                <h1>welcome to typebeats</h1>
+                <h3> A place for music artists to find their favorite type of beats</h3>
+                <img src='https://cdn.mos.cms.futurecdn.net/doXGMAjXPZaCpe9tjkFKsd-1024-80.jpg.webp' alt='room illustration'></img>
+            </div>
         )
     } else {
         homeContent = (
             <div className='home general'>
                 <h1>welcome to typebeats</h1>
                 <h3> A place for music artists to find their favorite type of beats</h3>
+                    <h4> Login or signup to check out beats </h4>
                 <img src='https://cdn.mos.cms.futurecdn.net/doXGMAjXPZaCpe9tjkFKsd-1024-80.jpg.webp' alt='room illustration'></img>
             </div>
         )
@@ -24,7 +29,7 @@ const HomePage = ({ isLoaded }) => {
                 {isLoaded && homeContent}
             </div>
             <footer className='footer'>
-                {/* <h3>Chris Ramos</h3> */}
+                <h3>Developer: Chris Ramos</h3>
             </footer>
         </>
     )
