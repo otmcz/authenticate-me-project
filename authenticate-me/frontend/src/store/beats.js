@@ -22,27 +22,31 @@ const loadBeats = (beats) => {
 };
 
 export const loadSomeBeats = () => async (dispatch) =>{
-  console.log('inside thunk')
-  const res = await csrfFetch('/api/beats');
+  // console.log('inside thunk')
+  const res = await csrfFetch('/api/beats',{
+    method: 'GET',
+  }
+  );
   const data = await res.json();
-  console.log(data)
+  // console.log(data)
   dispatch(loadBeats(data));
 };
 
 // ADD A BEAT
-const addBeat = (newBeat) => {
+const addBeat = (beat) => {
   return {
       type: ADD_BEAT,
-      newBeat
+      beat
   }
 };
 
-export const addABeat = (newBeat) => async (dispatch) => {
+export const addABeat = (beat) => async (dispatch) => {
 // one more undo
+const {title, imageUrl, audioUrl, key, userId, typeId } = beat
   const res = await csrfFetch('/api/beats', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(newBeat)
+    body: JSON.stringify({title, imageUrl, audioUrl, key, userId, typeId})
   });
   const data = await res.json();
   dispatch(addBeat(data));
@@ -51,10 +55,10 @@ export const addABeat = (newBeat) => async (dispatch) => {
 };
 
 //EDIT A BEAT
-const editBeat = (editedBeat) => {
+const editBeat = (beat) => {
   return {
       type: EDIT_BEAT,
-      editedBeat
+      beat
   }
 };
 
@@ -69,10 +73,10 @@ export const editABeat = (editedBeat, id) => async(dispatch) => {
   return data;
 }
 // DELETE BEAT
-const deleteBeat = (id) => {
+const deleteBeat = (beat) => {
   return {
     type: DELETE_BEAT,
-    id
+    beat
   }
 }
 
@@ -92,10 +96,10 @@ let newState = {};
 
   switch (action.type) {
     case LOAD_BEATS: {
-      console.log(action)
+      // console.log(action)
         newState = {...state}
         action.beats.forEach(beat => {
-          newState[beat.id] = beat;
+          newState[beat?.id] = beat;
         });
         return newState
       }
@@ -104,11 +108,11 @@ let newState = {};
       return {...state, [action.addBeat]: action.addBeat }
 
     case EDIT_BEAT:
-      return {...state, [action.beat.id]: action.beat }
+      return {...state, [action.beat?.id]: action.beat }
 
     case DELETE_BEAT:
       newState = { ...state };
-      delete newState.list[action.beat.id];
+      delete newState.list[action.beat?.id];
       return newState;
 
     default:

@@ -11,15 +11,15 @@ router.get('/', asyncHandler(async (req, res) => {
   res.json(beats);
 }));
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-    const beat = await Beat.findByPk(req.params.id);
-    res.json(beat);
-      })
-    );
+// router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+//     const beat = await Beat.findByPk(req.params.id);
+//     res.json(beat);
+//       })
+//     );
 
 router.post('/', asyncHandler(async (req, res) => {
   const createBeat = await Beat.create(req.body);
-  console.log(createBeat)
+  // console.log(createBeat)
   res.json(createBeat);
 }));
 
@@ -34,6 +34,7 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
   const id = req.params.id;
   const beat = await Beat.findByPk(id);
   await beat.destroy();
+  res.json({beat})
 }));
 
 module.exports = router;
