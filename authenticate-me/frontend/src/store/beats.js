@@ -96,7 +96,6 @@ let newState = {};
 
   switch (action.type) {
     case LOAD_BEATS: {
-      // console.log(action)
         newState = {...state}
         action.beats.forEach(beat => {
           newState[beat?.id] = beat;
@@ -104,16 +103,17 @@ let newState = {};
         return newState
       }
     case ADD_BEAT:
-      // console.log('THIS IS THE ACTION',action)
-      return {...state, [action.addBeat]: action.addBeat }
+
+      newState.beats = {...state.beats, [action.beat.id]: action.beat };
+      return newState;
 
     case EDIT_BEAT:
       return {...state, [action.beat?.id]: action.beat }
 
     case DELETE_BEAT:
-      newState = { ...state };
-      delete newState.list[action.beat?.id];
-      return newState;
+      newState.beats = {...state.beats}
+      delete newState.beats[action.beat.id]
+      return newState
 
     default:
       return state;

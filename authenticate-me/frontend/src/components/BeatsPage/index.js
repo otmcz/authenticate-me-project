@@ -23,7 +23,7 @@ const Beats = () => {
           <div key={beat?.id} id={beat?.id}>
             <h3>{beat?.title}</h3>
             <Link to={`/beats/${beat?.id}`}>
-              <img className='beatImage' alt={`${beat?.imageUrl}`} src={beat?.imageUrl} />
+              <img className='beatImage' alt='' src={beat?.imageUrl} />
             </Link>
           </div>
       )
